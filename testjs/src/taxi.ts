@@ -1,4 +1,6 @@
-export const Taxi = () => 55
+export const Taxi = (distance: number, waitingTime: number): number => {
+  return minimumFare(fare(distance, waitingTime))
+}
 
 export const calculateFare = (
   distance: number,
@@ -17,4 +19,8 @@ export const roundWaitingTime = (waitingTime: number): number => {
 
 export const fare = (distance: number, waitingTime: number): number => {
   return calculateFare(roundDistance(distance), roundWaitingTime(waitingTime))
+}
+
+export const minimumFare = (f: number): number => {
+  return Math.max(f, 8)
 }

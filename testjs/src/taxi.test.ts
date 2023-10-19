@@ -2,6 +2,7 @@ import {
   Taxi,
   calculateFare,
   fare,
+  minimumFare,
   roundDistance,
   roundWaitingTime,
 } from './taxi'
@@ -146,6 +147,24 @@ describe('Taxi', () => {
       const result = fare(distance, waitingTime)
 
       expect(result).toEqual(20)
+    })
+  })
+
+  describe('minimum fare', () => {
+    it('should return minimum fare of 8', () => {
+      const fare = 8
+
+      const result = minimumFare(fare)
+
+      expect(result).toEqual(8)
+    })
+
+    it('should return minimum fare of 8', () => {
+      const fare = 7
+
+      const result = minimumFare(fare)
+
+      expect(result).toEqual(8)
     })
   })
 })
